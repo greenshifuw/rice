@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R.I.C.E - Ingénierie Environnementale</title>
+    <meta name="description" content="Bureau d'études R.I.C.E à La Réunion. Expertise en développement durable, écoconception, dépollution et ingénierie environnementale." />
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1fuy_xQJH5LZGyoPu_0Hc7-pDsrnIPuF6" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#f2fcf0',
+                100: '#e1f7db',
+                200: '#c5ecc0',
+                300: '#9bda95',
+                400: '#6bc163',
+                500: '#5fab3b', // Vert Feuille Naturel (Logo)
+                600: '#46852b',
+                700: '#396a24',
+                800: '#315322',
+                900: '#29441f',
+                950: '#13240f',
+              },
+              secondary: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9', // Bleu Azur (Océan du logo)
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e', // Bleu Profond (Continents/Ombre du logo)
+                950: '#082f49',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+       body { font-family: 'Inter', sans-serif; }
+       h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
+       blockquote { font-family: 'Playfair Display', serif; }
+       
+       /* Custom animation for Hero */
+       @keyframes fade-in-up {
+         from { opacity: 0; transform: translateY(20px); }
+         to { opacity: 1; transform: translateY(0); }
+       }
+       .animate-fade-in-up {
+         animation: fade-in-up 0.8s ease-out forwards;
+       }
+       
+       /* Decoration blobs */
+       @keyframes blob {
+         0% { transform: translate(0px, 0px) scale(1); }
+         33% { transform: translate(30px, -50px) scale(1.1); }
+         66% { transform: translate(-20px, 20px) scale(0.9); }
+         100% { transform: translate(0px, 0px) scale(1); }
+       }
+       .animate-blob {
+         animation: blob 7s infinite;
+       }
+       .animation-delay-2000 {
+         animation-delay: 2s;
+       }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@6.22.3",
+    "@remix-run/router": "https://aistudiocdn.com/@remix-run/router@1.15.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
