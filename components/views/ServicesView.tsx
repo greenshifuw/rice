@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Sprout, Lightbulb, FileCheck, HardHat, LayoutDashboard } from 'lucide-react';
+import { Sprout, Lightbulb, FileCheck, HardHat, LayoutDashboard, ExternalLink } from 'lucide-react';
 import { Language } from '../../types';
 
 interface ServicesViewProps {
@@ -70,6 +71,7 @@ const RAW_SERVICES = [
   {
     icon: <LayoutDashboard className="h-8 w-8 text-white" />,
     color: "bg-cyan-600",
+    link: "https://www.numerice.rice.re",
     fr: {
       title: "Digitalisation & Tableaux de bord",
       description: "Conception de tableaux de bord numériques sur mesure pour piloter efficacement votre DUERP, vos certifications ISO, votre démarche QHSE/QSE et la gestion de vos déchets."
@@ -104,6 +106,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ language }) => {
       title: "Prestations sur Mesure",
       subtitle: "De l'étude préliminaire à la mise en œuvre, nous couvrons tous les aspects de l'ingénierie environnementale.",
       themes: "Thématiques Couvertes",
+      more: "En savoir plus",
       tags: [
         "Énergie Maîtrisée", "Santé Environnementale", "Smart Cities", 
         "Climat", "Croissance Durable", "Maîtrise des Consommations",
@@ -115,6 +118,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ language }) => {
       title: "Tailored Services",
       subtitle: "From preliminary studies to implementation, we cover all aspects of environmental engineering.",
       themes: "Covered Themes",
+      more: "Learn more",
       tags: [
         "Energy Management", "Environmental Health", "Smart Cities", 
         "Climate", "Sustainable Growth", "Consumption Control",
@@ -138,15 +142,28 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ language }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sortedServices.map((service, idx) => (
-            <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
-              <div className={`${service.color} p-6 flex justify-center items-center h-32 group-hover:scale-105 transition-transform duration-500`}>
+            <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group flex flex-col">
+              <div className={`${service.color} p-6 flex justify-center items-center h-32 group-hover:scale-105 transition-transform duration-500 flex-shrink-0`}>
                 {service.icon}
               </div>
-              <div className="p-8">
+              <div className="p-8 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold text-slate-800 mb-3">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
+                {service.link && (
+                  <div className="mt-auto pt-4 border-t border-slate-50">
+                    <a 
+                      href={service.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 transition group/link"
+                    >
+                      {t.more}
+                      <ExternalLink className="ml-2 h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}
