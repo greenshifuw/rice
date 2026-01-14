@@ -34,7 +34,7 @@ const ACTIVITY_CATEGORIES = [
     fr: {
       name: "Études Techniques",
       items: [
-        "Diagnostics amiante et plomb",
+        "Études et accompagnement amiante et plomb",
         "Études d'impact environnemental",
         "Plans de gestion des déchets de chantier",
         "Ingénierie de la dépollution"
@@ -43,7 +43,7 @@ const ACTIVITY_CATEGORIES = [
     en: {
       name: "Technical Studies",
       items: [
-        "Asbestos and lead diagnostics",
+        "Asbestos and lead studies and support",
         "Environmental impact studies",
         "Construction waste management plans",
         "Depollution engineering"
