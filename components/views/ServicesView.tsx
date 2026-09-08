@@ -74,11 +74,11 @@ const RAW_SERVICES = [
     link: "https://www.numerice.rice.re",
     fr: {
       title: "Digitalisation & Tableaux de bord",
-      description: "Conception de tableaux de bord numériques sur mesure pour piloter efficacement votre DUERP, vos certifications ISO, votre démarche QHSE/QSE et la gestion de vos déchets."
+      description: "Conception de tableaux de bord numériques sur mesure pour piloter efficacement votre DUERP, vos certifications ISO, votre démarche QHSE/QSE et la gestion de vos déchets. Logiciel de calcul des émissions Carbone."
     },
     en: {
       title: "Digitalization & Dashboards",
-      description: "Design of custom digital dashboards to effectively manage your risk assessments, ISO certifications, QHSE processes, and waste management."
+      description: "Design of custom digital dashboards to effectively manage your risk assessments, ISO certifications, QHSE processes, and waste management. Carbon emissions calculation software."
     }
   }
 ];

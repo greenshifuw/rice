@@ -39,7 +39,7 @@ export const PresentationView: React.FC<PresentationViewProps> = ({ language }) 
             { title: "ATMO & MOE", desc: "Maîtrise d'œuvre amiante, plomb, démolition et dépollution.", color: "bg-orange-500", icon: "hardhat" },
             { title: "Économie Circulaire", desc: "Stratégies pour transformer les déchets en ressources durables.", color: "bg-amber-500", icon: "recycle" },
             { title: "Innovation Industrielle", desc: "Adaptation des processus aux normes environnementales.", color: "bg-purple-500", icon: "lightbulb" },
-            { title: "Digitalisation", desc: "Tableaux de bord numériques pour le pilotage QHSE et déchets.", color: "bg-cyan-600", icon: "dashboard" }
+            { title: "Digitalisation", desc: "Tableaux de bord numériques (QHSE, déchets) et logiciel de calcul des émissions Carbone.", color: "bg-cyan-600", icon: "dashboard" }
           ]
         },
         {
@@ -84,7 +84,7 @@ export const PresentationView: React.FC<PresentationViewProps> = ({ language }) 
             { title: "Project Management", desc: "Supervision for asbestos, lead, demolition and remediation.", color: "bg-orange-500", icon: "hardhat" },
             { title: "Circular Economy", desc: "Strategies to transform waste into sustainable resources.", color: "bg-amber-500", icon: "recycle" },
             { title: "Industrial Innovation", desc: "Adapting processes to environmental standards.", color: "bg-purple-500", icon: "lightbulb" },
-            { title: "Digitalization", desc: "Digital dashboards for QHSE and waste management.", color: "bg-cyan-600", icon: "dashboard" }
+            { title: "Digitalization", desc: "Digital dashboards (QHSE, waste) and carbon emissions calculation software.", color: "bg-cyan-600", icon: "dashboard" }
           ]
         },
         {
