@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Globe, Leaf } from 'lucide-react';
+import { Menu, X, Globe, Leaf, FileText } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { NavItem, Language } from '../types';
 
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-secondary-100 transition-all duration-300">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-secondary-100 transition-all duration-300 print:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-40">
           {/* Logo */}
@@ -81,17 +81,36 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
                 {item.label}
               </button>
             ))}
-            <button 
-              onClick={onToggleLanguage}
-              className="flex items-center text-gray-500 hover:text-secondary-600 ml-4 px-3 py-1 border border-gray-200 rounded-full hover:border-secondary-500 transition-all"
-            >
-               <Globe className="h-4 w-4 mr-2" />
-               <span className="text-xs font-bold uppercase">{language}</span>
-            </button>
+            
+            <div className="flex items-center space-x-3 ml-4">
+              <button 
+                onClick={() => handleNavClick('/presentation')}
+                title={language === 'fr' ? 'Version Présentation / PDF' : 'Presentation / PDF Version'}
+                className="flex items-center text-primary-600 hover:text-primary-700 px-3 py-1 border border-primary-100 rounded-full hover:bg-primary-50 transition-all"
+              >
+                 <FileText className="h-4 w-4 mr-2" />
+                 <span className="text-xs font-bold uppercase">PDF</span>
+              </button>
+
+              <button 
+                onClick={onToggleLanguage}
+                className="flex items-center text-gray-500 hover:text-secondary-600 px-3 py-1 border border-gray-200 rounded-full hover:border-secondary-500 transition-all"
+              >
+                 <Globe className="h-4 w-4 mr-2" />
+                 <span className="text-xs font-bold uppercase">{language}</span>
+              </button>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
+            <button 
+              onClick={() => handleNavClick('/presentation')}
+              className="flex items-center text-primary-600 hover:text-primary-700 px-3 py-2 border border-primary-100 rounded-full active:bg-primary-50 transition-colors"
+              aria-label="Presentation mode"
+            >
+               <FileText className="h-4 w-4" />
+            </button>
             <button 
               onClick={onToggleLanguage}
               className="flex items-center text-gray-500 hover:text-secondary-600 px-3 py-2 border border-gray-200 rounded-full active:bg-slate-100 transition-colors"

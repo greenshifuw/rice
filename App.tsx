@@ -13,6 +13,7 @@ import { StrategyView } from './components/views/StrategyView';
 import { ContactView } from './components/views/ContactView';
 import { LegalView } from './components/views/LegalView';
 import { PrivacyView } from './components/views/PrivacyView';
+import { PresentationView } from './components/views/PresentationView';
 
 // Wrapper to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -46,6 +47,7 @@ const AppContent: React.FC = () => {
           <Route path="/contact" element={<ContactView language={language} />} />
           <Route path="/legal" element={<LegalView language={language} />} />
           <Route path="/privacy" element={<PrivacyView language={language} />} />
+          <Route path="/presentation" element={<PresentationView language={language} />} />
         </Routes>
       </main>
 

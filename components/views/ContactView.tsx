@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Send } from 'lucide-react';
+import { Mail, Phone, Send, Globe, MapPin } from 'lucide-react';
 import { Language } from '../../types';
 
 interface ContactViewProps {
@@ -120,7 +120,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
                      href="tel:+262692656166" 
                      className="text-white hover:text-primary-300 hover:underline transition-all text-xl font-medium block mt-1"
                    >
-                     +262 692 65 61 66
+                     0692 65 61 66
                    </a>
                    <p className="text-xs text-slate-300 mt-1">Lundi - Vendredi: 8h30 - 17h30</p>
                  </div>
@@ -138,6 +138,35 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
                    >
                      contact@rice.re
                    </a>
+                 </div>
+               </div>
+
+               <div className="flex items-start group">
+                 <div className="bg-primary-600/20 border border-primary-500/30 p-3 rounded-lg mr-4 backdrop-blur-sm group-hover:bg-primary-500/30 transition">
+                    <Globe className="h-6 w-6 text-primary-400" />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-lg text-primary-100">Site Web</h4>
+                   <a 
+                     href="https://www.rice.re" 
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="text-white hover:text-primary-300 hover:underline transition-all text-xl font-medium block mt-1"
+                   >
+                     www.rice.re
+                   </a>
+                 </div>
+               </div>
+
+               <div className="flex items-start group">
+                 <div className="bg-primary-600/20 border border-primary-500/30 p-3 rounded-lg mr-4 backdrop-blur-sm group-hover:bg-primary-500/30 transition">
+                    <MapPin className="h-6 w-6 text-primary-400" />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-lg text-primary-100">{language === 'fr' ? 'Adresse' : 'Address'}</h4>
+                   <p className="text-white text-xl font-medium block mt-1">
+                     Le TAMPON, La Réunion
+                   </p>
                  </div>
                </div>
              </div>

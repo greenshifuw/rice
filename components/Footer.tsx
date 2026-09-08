@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Language } from '../types';
-import { Mail, Phone, Leaf } from 'lucide-react';
+import { Mail, Phone, Leaf, Globe, MapPin } from 'lucide-react';
 
 interface FooterProps {
   language: Language;
@@ -20,7 +20,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         about: "L'Entreprise",
         services: "Prestations",
         activities: "Activités",
-        contact: "Contact"
+        contact: "Contact",
+        presentation: "Présentation PDF"
       },
       expTitle: "Expertises",
       exp: [
@@ -43,7 +44,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         about: "About Us",
         services: "Services",
         activities: "Activities",
-        contact: "Contact"
+        contact: "Contact",
+        presentation: "PDF Presentation"
       },
       expTitle: "Expertise",
       exp: [
@@ -103,6 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               <li><button onClick={() => handleNav('/services')} className="hover:text-primary-600 transition">{t.nav.services}</button></li>
               <li><button onClick={() => handleNav('/activities')} className="hover:text-primary-600 transition">{t.nav.activities}</button></li>
               <li><button onClick={() => handleNav('/contact')} className="hover:text-primary-600 transition">{t.nav.contact}</button></li>
+              <li><button onClick={() => handleNav('/presentation')} className="hover:text-primary-600 transition font-semibold text-primary-600">{t.nav.presentation}</button></li>
             </ul>
           </div>
 
@@ -122,11 +125,19 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-primary-600 mr-3 shrink-0" />
-                <a href="tel:+262692656166" className="hover:text-secondary-800 transition">+262 692 65 61 66</a>
+                <a href="tel:+262692656166" className="hover:text-secondary-800 transition">0692 65 61 66</a>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-primary-600 mr-3 shrink-0" />
                 <a href="mailto:contact@rice.re" className="hover:text-secondary-800 transition">contact@rice.re</a>
+              </li>
+              <li className="flex items-center">
+                <Globe className="h-5 w-5 text-primary-600 mr-3 shrink-0" />
+                <a href="https://www.rice.re" target="_blank" rel="noopener noreferrer" className="hover:text-secondary-800 transition">www.rice.re</a>
+              </li>
+              <li className="flex items-center">
+                <MapPin className="h-5 w-5 text-primary-600 mr-3 shrink-0" />
+                <span className="text-slate-600">Le TAMPON, La Réunion</span>
               </li>
             </ul>
           </div>
