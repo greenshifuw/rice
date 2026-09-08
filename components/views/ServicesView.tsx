@@ -37,11 +37,11 @@ const RAW_SERVICES = [
     color: "bg-orange-500",
     fr: {
       title: "ATMO & MOE",
-      description: "Maîtrise d'œuvre amiante, plomb, démolition et dépollution. Gestion des risques sanitaires et suivi de chantier spécialisé."
+      description: "Maîtrise d'œuvre amiante, plomb, démolition et dépollution. Gestion des risques sanitaires, suivi de chantier spécialisé et suivi environnemental des travaux."
     },
     en: {
       title: "Project Management & Remediation",
-      description: "Project management for asbestos, lead, demolition, and depollution. Health risk management and specialized site supervision."
+      description: "Project management for asbestos, lead, demolition, and depollution. Health risk management, specialized site supervision, and environmental monitoring of works."
     }
   },
   {
