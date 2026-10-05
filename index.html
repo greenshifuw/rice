@@ -3,9 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>R.I.C.E - Ingénierie Environnementale</title>
-    <meta name="description" content="Bureau d'études R.I.C.E à La Réunion. Expertise en développement durable, écoconception, dépollution et ingénierie environnementale." />
+    <meta name="google-site-verification" content="knBvsUJ1uI9jJUa0ao5cAoshBMImjcGIUwF3PlVZqQg" />
+    <title>R.I.C.E Bureau d'études — Ingénierie environnementale à La Réunion</title>
+    <meta name="description" content="Bureau d'études R.I.C.E (Recherche Ingénierie Conseil Environnement) à La Réunion. Expertise en développement durable, écoconception, dépollution, ingénierie environnementale et audits carbone. Éditeur du logiciel RICO2 (bilan GES / BEGES)." />
+    <meta name="keywords" content="R.I.C.E, RICE, bureau d'études environnement, La Réunion, ingénierie environnementale, développement durable, écoconception, dépollution, RICO2, bilan carbone, bilan GES, BEGES" />
+    <link rel="canonical" href="https://rice.re/" />
+
+    <!-- Site name explicite pour Google SERP (2022+) — force l'affichage
+         "R.I.C.E Bureau d'études" comme site name. Signal distinct de
+         celui de rico2.rice.re (qui affiche "RICO2") pour que Google
+         comprenne que ce sont 2 entités distinctes sur le même domaine.
+         Cf. https://developers.google.com/search/docs/appearance/site-names -->
+    <meta name="application-name" content="R.I.C.E Bureau d'études" />
+    <meta name="apple-mobile-web-app-title" content="R.I.C.E Bureau d'études" />
+
+    <!-- Favicon — pour un rendu SEO Google fiable, il faut servir /favicon.ico
+         depuis TON domaine (pas depuis un CDN externe type Google Drive).
+         TODO : uploade le logo R.I.C.E en /favicon.ico et /favicons/*.png dans public/
+         Voir bloc "Favicons multi-taille" plus bas commentaire. -->
     <link rel="icon" href="https://lh3.googleusercontent.com/d/1fuy_xQJH5LZGyoPu_0Hc7-pDsrnIPuF6" />
+
+    <!-- Open Graph (LinkedIn, Facebook, WhatsApp, Slack) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="R.I.C.E Bureau d'études" />
+    <meta property="og:title" content="R.I.C.E Bureau d'études — Ingénierie environnementale à La Réunion" />
+    <meta property="og:description" content="Bureau d'études R.I.C.E : ingénierie environnementale, développement durable, écoconception, dépollution. Éditeur du logiciel RICO2 (bilan GES / BEGES)." />
+    <meta property="og:url" content="https://rice.re/" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="R.I.C.E Bureau d'études — Ingénierie environnementale" />
+    <meta name="twitter:description" content="Ingénierie environnementale, développement durable, écoconception à La Réunion. Éditeur du logiciel RICO2." />
+
+    <!-- JSON-LD : Organization + WebSite + lien explicite vers RICO2 pour que
+         Google traite rice.re et rico2.rice.re comme 2 entités distinctes -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://rice.re/#website",
+          "url": "https://rice.re/",
+          "name": "R.I.C.E Bureau d'études",
+          "alternateName": ["R.I.C.E", "RICE", "Recherche Ingénierie Conseil Environnement"],
+          "description": "Bureau d'études R.I.C.E — ingénierie environnementale, développement durable, écoconception, dépollution. Basé à La Réunion.",
+          "inLanguage": "fr-FR",
+          "publisher": { "@id": "https://rice.re/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://rice.re/#organization",
+          "name": "R.I.C.E",
+          "legalName": "R.I.C.E — Recherche Ingénierie Conseil Environnement",
+          "alternateName": ["Recherche Ingénierie Conseil Environnement", "RICE"],
+          "url": "https://rice.re/",
+          "email": "contact@rice.re",
+          "areaServed": ["FR", "RE", "YT", "GP", "MQ", "GF"],
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR",
+            "addressRegion": "La Réunion"
+          },
+          "sameAs": [
+            "https://rico2.rice.re/"
+          ],
+          "knowsAbout": [
+            "Ingénierie environnementale",
+            "Bilan GES",
+            "Écoconception",
+            "Développement durable",
+            "Dépollution"
+          ]
+        }
+      ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {

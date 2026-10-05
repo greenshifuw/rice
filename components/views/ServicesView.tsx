@@ -1,6 +1,14 @@
 
 import React from 'react';
-import { Sprout, Lightbulb, FileCheck, HardHat, LayoutDashboard, ExternalLink } from 'lucide-react';
+import {
+  HardHat, Construction, TrafficCone,
+  ChartNoAxesCombined, Gauge, MonitorCog,
+  Recycle, Infinity as InfinityIcon,
+  ClipboardCheck, FileSearch, Landmark,
+  Lightbulb, Factory, Cog,
+  Bird, Trees, Leaf,
+  ExternalLink
+} from 'lucide-react';
 import { Language } from '../../types';
 
 interface ServicesViewProps {
@@ -9,7 +17,7 @@ interface ServicesViewProps {
 
 const RAW_SERVICES = [
   {
-    icon: <Sprout className="h-8 w-8 text-white" />,
+    icon: <><Bird className="h-8 w-8 text-white" /><Trees className="h-8 w-8 text-white" /><Leaf className="h-8 w-8 text-white" /></>,
     color: "bg-green-600",
     fr: {
       title: "Renaturation & Biodiversité",
@@ -21,7 +29,7 @@ const RAW_SERVICES = [
     }
   },
   {
-    icon: <FileCheck className="h-8 w-8 text-white" />,
+    icon: <><ClipboardCheck className="h-8 w-8 text-white" /><FileSearch className="h-8 w-8 text-white" /><Landmark className="h-8 w-8 text-white" /></>,
     color: "bg-indigo-500",
     fr: {
       title: "Études & Dossiers Réglementaires",
@@ -33,7 +41,7 @@ const RAW_SERVICES = [
     }
   },
   {
-    icon: <HardHat className="h-8 w-8 text-white" />,
+    icon: <><HardHat className="h-8 w-8 text-white" /><Construction className="h-8 w-8 text-white" /><TrafficCone className="h-8 w-8 text-white" /></>,
     color: "bg-orange-500",
     fr: {
       title: "ATMO & MOE",
@@ -45,7 +53,7 @@ const RAW_SERVICES = [
     }
   },
   {
-    icon: <RecycleIcon className="h-8 w-8 text-white" />,
+    icon: <><Recycle className="h-8 w-8 text-white" /><InfinityIcon className="h-8 w-8 text-white" /></>,
     color: "bg-amber-500",
     fr: {
       title: "Économie Circulaire",
@@ -57,7 +65,7 @@ const RAW_SERVICES = [
     }
   },
   {
-    icon: <Lightbulb className="h-8 w-8 text-white" />,
+    icon: <><Lightbulb className="h-8 w-8 text-white" /><Factory className="h-8 w-8 text-white" /><Cog className="h-8 w-8 text-white" /></>,
     color: "bg-purple-500",
     fr: {
       title: "Innovation Industrielle",
@@ -69,7 +77,7 @@ const RAW_SERVICES = [
     }
   },
   {
-    icon: <LayoutDashboard className="h-8 w-8 text-white" />,
+    icon: <><ChartNoAxesCombined className="h-8 w-8 text-white" /><Gauge className="h-8 w-8 text-white" /><MonitorCog className="h-8 w-8 text-white" /></>,
     color: "bg-cyan-600",
     link: "https://www.numerice.rice.re",
     fr: {
@@ -82,13 +90,6 @@ const RAW_SERVICES = [
     }
   }
 ];
-
-// Helper component for icon
-function RecycleIcon({className}: {className?: string}) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784l1.326-2.296 1.5 2.607M3.75 6H7m0 0 3-4h4.5m-7.5 4L7 10m9-4 1.5 2.607-1.5 2.607m1.285-5.214 1.326-2.296A1.785 1.785 0 0 0 19.39 2.12a1.83 1.83 0 0 0-1.57-.881H14.5M16 10h-2.5m2.5 0 3 4M7 19l1.5-2.607-1.5-2.607M7 19h7.5m0 0 1.57.881a1.83 1.83 0 0 0 1.57-.881 1.785 1.785 0 0 0 .004-1.784L17.5 16m0 0-3-4"/></svg>
-    )
-}
 
 export const ServicesView: React.FC<ServicesViewProps> = ({ language }) => {
   // Sort services alphabetically based on the current language title
@@ -143,7 +144,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ language }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sortedServices.map((service, idx) => (
             <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group flex flex-col">
-              <div className={`${service.color} p-6 flex justify-center items-center h-32 group-hover:scale-105 transition-transform duration-500 flex-shrink-0`}>
+              <div className={`${service.color} p-6 flex justify-center items-center gap-6 h-32 group-hover:scale-105 transition-transform duration-500 flex-shrink-0`}>
                 {service.icon}
               </div>
               <div className="p-8 flex-grow flex flex-col">
