@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { Seo } from './components/Seo';
 import { Language } from './types';
 
 // Views
@@ -27,14 +26,12 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Exporté pour le pré-rendu statique (entry-server.tsx)
-export const AppContent: React.FC = () => {
+const AppContent: React.FC = () => {
   const [language, setLanguage] = useState<Language>('fr');
 
   return (
     <div className="font-sans text-slate-700 antialiased min-h-screen flex flex-col bg-slate-50">
       <ScrollToTop />
-      <Seo />
       <Header 
         language={language}
         onToggleLanguage={() => setLanguage(l => l === 'fr' ? 'en' : 'fr')}
@@ -61,9 +58,9 @@ export const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppContent />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

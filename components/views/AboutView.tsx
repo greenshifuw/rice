@@ -70,7 +70,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ language }) => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">{t.title}</h2>
+          <h1 className="text-4xl font-bold text-slate-900 mb-6">{t.title}</h1>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             {t.intro}
           </p>

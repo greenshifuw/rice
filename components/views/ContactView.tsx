@@ -97,7 +97,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-16 drop-shadow-md">{t.title}</h2>
+        <h1 className="text-4xl font-bold text-center mb-16 drop-shadow-md">{t.title}</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}

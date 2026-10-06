@@ -13,7 +13,7 @@ const ACTIVITY_CATEGORIES = [
       name: "Assistance & Conseil",
       items: [
         "Assistance à Maîtrise d'Ouvrage (AMO)",
-        "Stratégie RSE et bilans carbone",
+        "Stratégie RSE et bilans d'émissions de GES (BEGES)",
         "Gestion des Installations Classées (ICPE)",
         "Audit de conformité réglementaire"
       ]
@@ -22,7 +22,7 @@ const ACTIVITY_CATEGORIES = [
       name: "Assistance & Consulting",
       items: [
         "Project Ownership Assistance (AMO)",
-        "CSR strategy and carbon footprints",
+        "CSR strategy and greenhouse gas emissions reporting",
         "Classified Installations Management (ICPE)",
         "Regulatory compliance audit"
       ]
@@ -105,7 +105,7 @@ export const ActivitiesView: React.FC<ActivitiesViewProps> = ({ language }) => {
   return (
     <div className="bg-white min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">{tTitle}</h2>
+        <h1 className="text-4xl font-bold text-slate-900 mb-12 text-center">{tTitle}</h1>
         
         <div className="space-y-24">
           {ACTIVITY_CATEGORIES.map((cat, idx) => (

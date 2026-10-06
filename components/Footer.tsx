@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Language } from '../types';
 import { Mail, Phone, Leaf, Globe, MapPin } from 'lucide-react';
 
@@ -9,7 +9,6 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ language }) => {
   const [imgError, setImgError] = useState(false);
-  const navigate = useNavigate();
 
   const t = {
     fr: {
@@ -20,6 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         about: "L'Entreprise",
         services: "Prestations",
         activities: "Activités",
+        strategy: "Stratégies",
         contact: "Contact",
         presentation: "Présentation PDF"
       },
@@ -31,6 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         "Économie Circulaire & RSE",
         "Imagerie Drone & 3D"
       ],
+      digitalTitle: "Solutions numériques",
       contactTitle: "Nous Contacter",
       rights: "Tous droits réservés.",
       legal: "Mentions Légales",
@@ -44,6 +45,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         about: "About Us",
         services: "Services",
         activities: "Activities",
+        strategy: "Strategy",
         contact: "Contact",
         presentation: "PDF Presentation"
       },
@@ -55,16 +57,13 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         "Circular Economy & CSR",
         "Drone Imagery & 3D"
       ],
+      digitalTitle: "Digital solutions",
       contactTitle: "Contact Us",
       rights: "All rights reserved.",
       legal: "Legal Notice",
       privacy: "Privacy Policy"
     }
   }[language];
-
-  const handleNav = (path: string) => {
-    navigate(path);
-  };
 
   return (
     // Changed bg to light (secondary-50) and text to dark (secondary-900/slate-600) to blend the white logo background
@@ -78,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               <div className="h-20 w-20 mr-5 flex-shrink-0 relative">
                 {!imgError ? (
                   <img 
-                    src="https://lh3.googleusercontent.com/d/1fuy_xQJH5LZGyoPu_0Hc7-pDsrnIPuF6" 
+                    src="/logo-rice.jpg" 
                     alt="Logo R.I.C.E" 
                     className="h-full w-full object-contain" 
                     onError={() => setImgError(true)}
@@ -100,12 +99,13 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <h3 className="text-secondary-900 font-semibold mb-4 tracking-wider uppercase text-sm">{t.navTitle}</h3>
             <ul className="space-y-2 text-sm">
-              <li><button onClick={() => handleNav('/')} className="hover:text-primary-600 transition">{t.nav.home}</button></li>
-              <li><button onClick={() => handleNav('/about')} className="hover:text-primary-600 transition">{t.nav.about}</button></li>
-              <li><button onClick={() => handleNav('/services')} className="hover:text-primary-600 transition">{t.nav.services}</button></li>
-              <li><button onClick={() => handleNav('/activities')} className="hover:text-primary-600 transition">{t.nav.activities}</button></li>
-              <li><button onClick={() => handleNav('/contact')} className="hover:text-primary-600 transition">{t.nav.contact}</button></li>
-              <li><button onClick={() => handleNav('/presentation')} className="hover:text-primary-600 transition font-semibold text-primary-600">{t.nav.presentation}</button></li>
+              <li><Link to="/" className="hover:text-primary-600 transition">{t.nav.home}</Link></li>
+              <li><Link to="/about" className="hover:text-primary-600 transition">{t.nav.about}</Link></li>
+              <li><Link to="/services" className="hover:text-primary-600 transition">{t.nav.services}</Link></li>
+              <li><Link to="/activities" className="hover:text-primary-600 transition">{t.nav.activities}</Link></li>
+              <li><Link to="/strategy" className="hover:text-primary-600 transition">{t.nav.strategy}</Link></li>
+              <li><Link to="/contact" className="hover:text-primary-600 transition">{t.nav.contact}</Link></li>
+              <li><Link to="/presentation" className="hover:text-primary-600 transition font-semibold text-primary-600">{t.nav.presentation}</Link></li>
             </ul>
           </div>
 
@@ -116,6 +116,12 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               {t.exp.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
+            </ul>
+            <h3 className="text-secondary-900 font-semibold mt-8 mb-4 tracking-wider uppercase text-sm">{t.digitalTitle}</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="https://www.numerice.rice.re/" target="_blank" rel="noopener" className="hover:text-primary-600 transition">NUMERICE by R.I.C.E</a></li>
+              <li><a href="https://numericebtp.rice.re/" target="_blank" rel="noopener" className="hover:text-primary-600 transition">NUMERICE BTP — suivi de travaux</a></li>
+              <li><a href="https://rico2.rice.re/" target="_blank" rel="noopener" className="hover:text-primary-600 transition">RICO2 — bilan des émissions GES</a></li>
             </ul>
           </div>
 
@@ -137,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               </li>
               <li className="flex items-center">
                 <MapPin className="h-5 w-5 text-primary-600 mr-3 shrink-0" />
-                <span className="text-slate-600">Le TAMPON, La Réunion</span>
+                <span className="text-slate-600">5 impasse Ambroise, 97430 Le Tampon, La Réunion</span>
               </li>
             </ul>
           </div>
@@ -146,12 +152,12 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
         <div className="border-t border-secondary-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} R.I.C.E - {t.rights}</p>
           <div className="mt-4 md:mt-0 space-x-6">
-            <button onClick={() => handleNav('/legal')} className="hover:text-primary-600 transition">
+            <Link to="/legal" className="hover:text-primary-600 transition">
               {t.legal}
-            </button>
-            <button onClick={() => handleNav('/privacy')} className="hover:text-primary-600 transition">
+            </Link>
+            <Link to="/privacy" className="hover:text-primary-600 transition">
               {t.privacy}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Menu, X, Globe, Leaf, FileText } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { NavItem, Language } from '../types';
 
 interface HeaderProps {
@@ -38,15 +38,17 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-40">
           {/* Logo */}
-          <div 
+          <Link 
+            to="/"
+            aria-label={language === 'fr' ? "R.I.C.E — bureau d'études environnement, accueil" : 'R.I.C.E — home'}
             className="flex items-center cursor-pointer group py-2" 
-            onClick={() => handleNavClick('/')}
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             {/* Logo Image */}
             <div className="relative h-12 w-12 md:h-32 md:w-32 mr-3 md:mr-6 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
               {!imgError ? (
                 <img 
-                  src="https://lh3.googleusercontent.com/d/1fuy_xQJH5LZGyoPu_0Hc7-pDsrnIPuF6" 
+                  src="/logo-rice.jpg" 
                   alt="Logo R.I.C.E" 
                   className="h-full w-full object-contain"
                   onError={() => setImgError(true)}
@@ -64,14 +66,14 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
                 {language === 'fr' ? 'INGÉNIERIE ENVIRONNEMENTALE' : 'ENVIRONMENTAL ENGINEERING'}
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
             {NAV_ITEMS.map((item) => (
-              <button
+              <Link
                 key={item.path}
-                onClick={() => handleNavClick(item.path)}
+                to={item.path}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   isActive(item.path)
                     ? 'text-secondary-700 border-b-2 border-primary-500'
@@ -79,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
             
             <div className="flex items-center space-x-3 ml-4">
@@ -135,9 +137,10 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
         <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl animate-fade-in-up">
           <div className="px-2 pt-2 pb-6 space-y-1 sm:px-3">
             {NAV_ITEMS.map((item) => (
-              <button
+              <Link
                 key={item.path}
-                onClick={() => handleNavClick(item.path)}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-4 py-4 rounded-md text-lg font-semibold w-full text-left transition-colors ${
                   isActive(item.path)
                     ? 'text-primary-700 bg-primary-50 border-l-4 border-primary-500'
@@ -145,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ language, onToggleLanguage }) =>
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>

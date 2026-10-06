@@ -1,14 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css';
-
-// Anciennes adresses en « #/page » (avant le passage aux vraies URL) :
-// on les convertit en « /page » pour que les liens déjà partagés restent valides.
-if (window.location.hash.startsWith('#/')) {
-  const target = window.location.hash.slice(1);
-  window.history.replaceState(null, '', target);
-}
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
