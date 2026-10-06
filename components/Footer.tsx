@@ -145,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               </li>
               <li className="flex items-center">
                 <MapPin className="h-5 w-5 text-primary-600 mr-3 shrink-0" />
-                <span className="text-slate-600">5 impasse Ambroise, 97430 Le Tampon, La Réunion</span>
+                <span className="text-slate-600">La Réunion</span>
               </li>
             </ul>
           </div>

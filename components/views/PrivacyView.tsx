@@ -30,7 +30,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
         },
         {
           heading: "5. Vos droits",
-          text: "Conformément au RGPD, vous disposez des droits suivants concernant vos données :\n- Droit d'accès et de rectification\n- Droit à l'effacement (droit à l'oubli)\n- Droit à la limitation du traitement\n\nPour exercer ces droits, veuillez nous contacter à l'adresse : **contact@rice.re** ou par courrier au 5 impasse Ambroise, 97430 Le TAMPON."
+          text: "Conformément au RGPD, vous disposez des droits suivants concernant vos données :\n- Droit d'accès et de rectification\n- Droit à l'effacement (droit à l'oubli)\n- Droit à la limitation du traitement\n\nPour exercer ces droits, veuillez nous contacter à l'adresse : **contact@rice.re**."
         },
         {
           heading: "6. Cookies",
@@ -61,7 +61,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
         },
         {
           heading: "5. Your Rights",
-          text: "In accordance with the GDPR, you have the following rights regarding your data:\n- Right of access and rectification\n- Right to erasure (right to be forgotten)\n- Right to restriction of processing\n\nTo exercise these rights, please contact us at: **contact@rice.re** or by mail at 5 impasse Ambroise, 97430 Le TAMPON."
+          text: "In accordance with the GDPR, you have the following rights regarding your data:\n- Right of access and rectification\n- Right to erasure (right to be forgotten)\n- Right to restriction of processing\n\nTo exercise these rights, please contact us at: **contact@rice.re**."
         },
         {
           heading: "6. Cookies",
