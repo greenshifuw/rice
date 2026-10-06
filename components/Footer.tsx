@@ -35,7 +35,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
       contactTitle: "Nous Contacter",
       rights: "Tous droits réservés.",
       legal: "Mentions Légales",
-      privacy: "Politique de Confidentialité"
+      privacy: "Politique de Confidentialité",
+      cookies: "Gestion des cookies"
     },
     en: {
       description: "Reunion Engineering Environmental Consultant. Your partner for sustainable and responsible development since 2008.",
@@ -61,7 +62,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
       contactTitle: "Contact Us",
       rights: "All rights reserved.",
       legal: "Legal Notice",
-      privacy: "Privacy Policy"
+      privacy: "Privacy Policy",
+      cookies: "Cookie settings"
     }
   }[language];
 
@@ -158,6 +160,9 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <Link to="/privacy" className="hover:text-primary-600 transition">
               {t.privacy}
             </Link>
+            <button type="button" onClick={() => window.__riceShowConsent?.()} className="hover:text-primary-600 transition">
+              {t.cookies}
+            </button>
           </div>
         </div>
       </div>

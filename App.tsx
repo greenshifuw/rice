@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Seo } from './components/Seo';
+import { CookieConsent } from './components/CookieConsent';
+import { installContactClickTracking } from './tracking/googleAds';
 import { Language } from './types';
 
 // Views
@@ -31,6 +33,9 @@ const ScrollToTop = () => {
 export const AppContent: React.FC = () => {
   const [language, setLanguage] = useState<Language>('fr');
 
+  // Conversion Google Ads « Contact cliqué » sur les liens téléphone, e-mail et WhatsApp
+  useEffect(() => installContactClickTracking(), []);
+
   return (
     <div className="font-sans text-slate-700 antialiased min-h-screen flex flex-col bg-slate-50">
       <ScrollToTop />
@@ -55,6 +60,7 @@ export const AppContent: React.FC = () => {
       </main>
 
       <Footer language={language} />
+      <CookieConsent language={language} />
     </div>
   );
 };

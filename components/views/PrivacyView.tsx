@@ -9,7 +9,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
   const content = {
     fr: {
       title: "Politique de Confidentialité",
-      lastUpdate: "Dernière mise à jour : Octobre 2023",
+      lastUpdate: "Dernière mise à jour : octobre 2026",
       intro: "L'entreprise R.I.C.E accorde une grande importance à la protection de votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles conformément au Règlement Général sur la Protection des Données (RGPD).",
       sections: [
         {
@@ -34,13 +34,13 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
         },
         {
           heading: "6. Cookies",
-          text: "Ce site utilise des cookies techniques essentiels à son fonctionnement. Nous n'utilisons pas de cookies publicitaires ou de traçage intrusifs sans votre consentement préalable."
+          text: "Ce site utilise des cookies techniques essentiels à son fonctionnement.\n\nAvec votre accord uniquement, il utilise aussi des cookies publicitaires Google Ads (Google Ireland Ltd), qui servent à mesurer si une visite provient de nos annonces et si elle aboutit à une prise de contact (clic sur le téléphone, l'e-mail, WhatsApp ou le formulaire). Aucune publicité n'est affichée sur ce site. Sans votre accord, aucun cookie publicitaire n'est déposé.\n\nVotre choix est conservé 13 mois. Vous pouvez le modifier à tout moment grâce au lien « Gestion des cookies » en bas de chaque page."
         }
       ]
     },
     en: {
       title: "Privacy Policy",
-      lastUpdate: "Last updated: October 2023",
+      lastUpdate: "Last updated: October 2026",
       intro: "R.I.C.E places great importance on protecting your privacy. This privacy policy explains how we collect, use, and protect your personal data in accordance with the General Data Protection Regulation (GDPR).",
       sections: [
         {
@@ -65,7 +65,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
         },
         {
           heading: "6. Cookies",
-          text: "This site uses technical cookies essential for its operation. We do not use advertising or intrusive tracking cookies without your prior consent."
+          text: "This site uses technical cookies essential for its operation.\n\nOnly with your consent, it also uses Google Ads advertising cookies (Google Ireland Ltd) to measure whether a visit comes from our ads and leads to a contact (click on the phone number, email, WhatsApp or the form). No ads are displayed on this site. Without your consent, no advertising cookie is set.\n\nYour choice is kept for 13 months. You can change it at any time using the \"Cookie settings\" link at the bottom of every page."
         }
       ]
     }

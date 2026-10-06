@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Send, Globe, MapPin } from 'lucide-react';
 import { Language } from '../../types';
+import { trackContact } from '../../tracking/googleAds';
 
 interface ContactViewProps {
   language: Language;
@@ -70,6 +71,9 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
       `Sujet: ${formData.subject}\n\n` +
       `Message:\n${formData.message}`
     );
+
+    // Conversion Google Ads « Contact cliqué » (envoyée seulement si les cookies publicitaires sont acceptés)
+    trackContact();
 
     // Redirection vers le client mail
     window.location.href = `mailto:contact@rice.re?subject=${subject}&body=${body}`;

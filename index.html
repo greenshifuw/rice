@@ -105,6 +105,30 @@
     }
     </script>
 
+    <!-- Google Consent Mode v2 : tout est refusé par défaut, AVANT le chargement de la balise.
+         Seule la bannière de consentement (components/CookieConsent.tsx) peut accorder
+         les cookies publicitaires. Même fonctionnement que rico2.rice.re. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+    </script>
+    <!-- Balise Google Ads (compte « RICE », partagé avec RICO2) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18427250200"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'AW-18427250200');
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" />
