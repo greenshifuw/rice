@@ -48,6 +48,27 @@ export const ROUTES: RouteMeta[] = [
     sitemapPriority: 0.9,
   },
   {
+    path: '/carbone-operation',
+    title: "Mémoire environnemental et suivi des émissions de GES de chantier | R.I.C.E",
+    description:
+      "Entreprises du BTP à La Réunion : R.I.C.E estime les émissions de GES de votre opération pour le mémoire environnemental, puis les mesure en temps réel dans RICO2 pour piloter une trajectoire de réduction.",
+    sitemapPriority: 0.9,
+  },
+  {
+    path: '/biodechets',
+    title: "AMO tri à la source des biodéchets à La Réunion | R.I.C.E",
+    description:
+      "Tri à la source des biodéchets obligatoire depuis 2024 : R.I.C.E accompagne restauration collective, établissements et collectivités — état des lieux, choix de solution, DCE, analyse des offres, suivi.",
+    sitemapPriority: 0.9,
+  },
+  {
+    path: '/chantier-suivi',
+    title: "Maîtrise d'œuvre et suivi environnemental de chantier à La Réunion | R.I.C.E",
+    description:
+      "Démolition, désamiantage, déplombage, dépollution : R.I.C.E conduit votre opération et vous ouvre NUMERICE BTP, un espace de suivi partagé en temps réel. Bureau d'études depuis 2008.",
+    sitemapPriority: 0.9,
+  },
+  {
     path: '/about',
     title: "Bureau d'études environnement au Tampon depuis 2008 | R.I.C.E",
     description:

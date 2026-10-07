@@ -46,7 +46,8 @@ const RAW_SERVICES = [
     color: "bg-orange-500",
     pages: [
       { to: "/amiante-plomb", fr: "Amiante et plomb : AMO et MOE", en: "Asbestos and lead" },
-      { to: "/depollution", fr: "Dépollution et sols pollués", en: "Site remediation" }
+      { to: "/depollution", fr: "Dépollution et sols pollués", en: "Site remediation" },
+      { to: "/chantier-suivi", fr: "Chantier suivi : MOE et suivi environnemental", en: "Monitored works" }
     ],
     fr: {
       title: "AMO & MOE",
@@ -60,6 +61,9 @@ const RAW_SERVICES = [
   {
     icon: <><Recycle className="h-8 w-8 text-white" /><InfinityIcon className="h-8 w-8 text-white" /></>,
     color: "bg-amber-500",
+    pages: [
+      { to: "/biodechets", fr: "AMO tri à la source des biodéchets", en: "Biowaste sorting" }
+    ],
     fr: {
       title: "Économie Circulaire",
       description: "Stratégies pour transformer les déchets en ressources et boucler les cycles de matière."
@@ -85,6 +89,9 @@ const RAW_SERVICES = [
     icon: <><ChartNoAxesCombined className="h-8 w-8 text-white" /><Gauge className="h-8 w-8 text-white" /><MonitorCog className="h-8 w-8 text-white" /></>,
     color: "bg-cyan-600",
     link: "https://www.numerice.rice.re",
+    pages: [
+      { to: "/carbone-operation", fr: "Carbone d'opération : mémoire et suivi des émissions de GES", en: "Operation carbon" }
+    ],
     fr: {
       title: "Digitalisation & Tableaux de bord",
       description: "Conception de tableaux de bord numériques sur mesure pour piloter efficacement votre DUERP, vos certifications ISO, votre démarche QHSE/QSE et la gestion de vos déchets. Logiciel de calcul des émissions Carbone."

@@ -115,6 +115,9 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <ul className="space-y-2 text-sm text-slate-600">
               <li><Link to="/amiante-plomb" className="hover:text-primary-600 transition">{language === 'fr' ? 'Amiante & Plomb : AMO, MOE' : 'Asbestos & Lead'}</Link></li>
               <li><Link to="/depollution" className="hover:text-primary-600 transition">{language === 'fr' ? 'Dépollution & sols pollués' : 'Site remediation'}</Link></li>
+              <li><Link to="/carbone-operation" className="hover:text-primary-600 transition">{language === 'fr' ? "Carbone d'opération" : 'Operation carbon'}</Link></li>
+              <li><Link to="/biodechets" className="hover:text-primary-600 transition">{language === 'fr' ? 'Biodéchets : AMO' : 'Biowaste'}</Link></li>
+              <li><Link to="/chantier-suivi" className="hover:text-primary-600 transition">{language === 'fr' ? 'Chantier suivi' : 'Monitored works'}</Link></li>
               {t.exp.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
