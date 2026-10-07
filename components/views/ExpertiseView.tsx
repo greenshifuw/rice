@@ -97,6 +97,10 @@ export const AMIANTE_PLOMB: ExpertiseData = {
           a: "Non. Les repérages sont réalisés par des opérateurs certifiés. R.I.C.E analyse ces rapports et s'en sert pour préparer la consultation des entreprises et suivre les travaux.",
         },
         {
+          q: "Le bureau qui a réalisé le repérage amiante peut-il aussi être votre AMO ou votre maître d'œuvre ?",
+          a: "Attention : c'est à éviter. Le Code du travail (article R4412-97-1) impose à l'opérateur de repérage amiante avant travaux d'exercer sa mission « en toute indépendance » et de n'avoir aucun « lien d'intérêts de nature à nuire à son impartialité, notamment avec une personne physique ou morale intervenant dans le cadre de la même opération de travaux ». Confier le repérage puis l'AMO ou la maîtrise d'œuvre de la même opération à une seule entité crée précisément ce lien : celui qui a établi le diagnostic préparerait et suivrait ensuite les travaux qui en découlent. Avant de signer, vérifiez que l'opérateur de repérage est un tiers indépendant des autres intervenants de l'opération. R.I.C.E ne réalise aucun repérage ni diagnostic : nous intervenons uniquement en conseil, AMO et maîtrise d'œuvre, en toute indépendance vis-à-vis des diagnostics.",
+        },
+        {
           q: "Quelle est la différence entre AMO et maîtrise d'œuvre ?",
           a: "L'AMO conseille et assiste le maître d'ouvrage dans le pilotage de son opération. La maîtrise d'œuvre prépare la consultation des entreprises (DCE, analyse des offres) et suit l'exécution des travaux pour le compte du maître d'ouvrage.",
         },
@@ -142,6 +146,10 @@ export const AMIANTE_PLOMB: ExpertiseData = {
         {
           q: 'Does R.I.C.E carry out asbestos or lead surveys?',
           a: 'No. Surveys are carried out by certified operators; R.I.C.E uses their reports to prepare and supervise the works.',
+        },
+        {
+          q: 'Can the firm that carried out the asbestos survey also act as your owner assistant or project manager?',
+          a: 'This should be avoided. The French Labour Code (article R4412-97-1) requires the survey operator to work "in complete independence", with no conflict of interest with any person involved in the same works operation. R.I.C.E carries out no surveys: we only act as advisor, owner assistant and project manager.',
         },
         { q: 'Where do you work?', a: 'In Réunion and Mayotte.' },
       ],
