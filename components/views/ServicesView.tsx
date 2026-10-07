@@ -9,6 +9,7 @@ import {
   Bird, Trees, Leaf,
   ExternalLink
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Language } from '../../types';
 
 interface ServicesViewProps {
@@ -43,8 +44,12 @@ const RAW_SERVICES = [
   {
     icon: <><HardHat className="h-8 w-8 text-white" /><Construction className="h-8 w-8 text-white" /><TrafficCone className="h-8 w-8 text-white" /></>,
     color: "bg-orange-500",
+    pages: [
+      { to: "/amiante-plomb", fr: "Amiante et plomb : AMO et MOE", en: "Asbestos and lead" },
+      { to: "/depollution", fr: "Dépollution et sols pollués", en: "Site remediation" }
+    ],
     fr: {
-      title: "ATMO & MOE",
+      title: "AMO & MOE",
       description: "Maîtrise d'œuvre amiante, plomb, démolition et dépollution. Gestion des risques sanitaires, suivi de chantier spécialisé et suivi environnemental des travaux."
     },
     en: {
@@ -152,6 +157,15 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ language }) => {
                 <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
+                {(service as any).pages && (
+                  <div className="mt-auto pt-4 border-t border-slate-50 flex flex-col gap-2">
+                    {(service as any).pages.map((pg: any) => (
+                      <Link key={pg.to} to={pg.to} className="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 transition">
+                        {pg[language]} →
+                      </Link>
+                    ))}
+                  </div>
+                )}
                 {service.link && (
                   <div className="mt-auto pt-4 border-t border-slate-50">
                     <a 

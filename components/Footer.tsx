@@ -26,7 +26,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
       expTitle: "Expertises",
       exp: [
         "Études Réglementaires & ICPE",
-        "Dépollution & Amiante",
         "Renaturation & Biodiversité",
         "Économie Circulaire & RSE",
         "Imagerie Drone & 3D"
@@ -53,7 +52,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
       expTitle: "Expertise",
       exp: [
         "Regulatory Studies & ICPE",
-        "Depollution & Asbestos",
         "Renaturation & Biodiversity",
         "Circular Economy & CSR",
         "Drone Imagery & 3D"
@@ -115,6 +113,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <h3 className="text-secondary-900 font-semibold mb-4 tracking-wider uppercase text-sm">{t.expTitle}</h3>
             <ul className="space-y-2 text-sm text-slate-600">
+              <li><Link to="/amiante-plomb" className="hover:text-primary-600 transition">{language === 'fr' ? 'Amiante & Plomb : AMO, MOE' : 'Asbestos & Lead'}</Link></li>
+              <li><Link to="/depollution" className="hover:text-primary-600 transition">{language === 'fr' ? 'Dépollution & sols pollués' : 'Site remediation'}</Link></li>
               {t.exp.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}

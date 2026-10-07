@@ -34,6 +34,20 @@ export const ROUTES: RouteMeta[] = [
     sitemapPriority: 0.8,
   },
   {
+    path: '/amiante-plomb',
+    title: "Maîtrise d'œuvre et AMO amiante et plomb à La Réunion | R.I.C.E",
+    description:
+      "Désamiantage et déplombage à La Réunion et Mayotte : R.I.C.E, bureau d'études depuis 2008, vous accompagne en AMO et maîtrise d'œuvre — analyse des dossiers, DCE, analyse des offres, suivi des travaux.",
+    sitemapPriority: 0.9,
+  },
+  {
+    path: '/depollution',
+    title: "Dépollution et sites et sols pollués à La Réunion : AMO, MOE | R.I.C.E",
+    description:
+      "Sols pollués à La Réunion et Mayotte : R.I.C.E vous accompagne en conseil, AMO et maîtrise d'œuvre des travaux de dépollution — analyse des études, DCE, analyse des offres, suivi.",
+    sitemapPriority: 0.9,
+  },
+  {
     path: '/about',
     title: "Bureau d'études environnement au Tampon depuis 2008 | R.I.C.E",
     description:
