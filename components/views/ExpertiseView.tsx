@@ -101,6 +101,10 @@ export const AMIANTE_PLOMB: ExpertiseData = {
           a: "Attention : c'est à éviter. Le Code du travail (article R4412-97-1) impose à l'opérateur de repérage amiante avant travaux d'exercer sa mission « en toute indépendance » et de n'avoir aucun « lien d'intérêts de nature à nuire à son impartialité, notamment avec une personne physique ou morale intervenant dans le cadre de la même opération de travaux ». Confier le repérage puis l'AMO ou la maîtrise d'œuvre de la même opération à une seule entité crée précisément ce lien : celui qui a établi le diagnostic préparerait et suivrait ensuite les travaux qui en découlent. Avant de signer, vérifiez que l'opérateur de repérage est un tiers indépendant des autres intervenants de l'opération. R.I.C.E ne réalise aucun repérage ni diagnostic : nous intervenons uniquement en conseil, AMO et maîtrise d'œuvre, en toute indépendance vis-à-vis des diagnostics.",
         },
         {
+          q: 'Et pour le plomb ?',
+          a: "Le diagnostiqueur plomb est lui aussi soumis à une exigence d'indépendance : le Code de la construction et de l'habitation (article L271-6) lui interdit tout lien de nature à porter atteinte à son impartialité avec le propriétaire qui fait appel à lui ou avec une entreprise pouvant réaliser les travaux. Dans le même esprit, nous vous recommandons de confier le diagnostic et l'accompagnement des travaux (AMO ou maîtrise d'œuvre) à des intervenants distincts. R.I.C.E ne réalise aucun diagnostic.",
+        },
+        {
           q: "Quelle est la différence entre AMO et maîtrise d'œuvre ?",
           a: "L'AMO conseille et assiste le maître d'ouvrage dans le pilotage de son opération. La maîtrise d'œuvre prépare la consultation des entreprises (DCE, analyse des offres) et suit l'exécution des travaux pour le compte du maître d'ouvrage.",
         },
@@ -150,6 +154,10 @@ export const AMIANTE_PLOMB: ExpertiseData = {
         {
           q: 'Can the firm that carried out the asbestos survey also act as your owner assistant or project manager?',
           a: 'This should be avoided. The French Labour Code (article R4412-97-1) requires the survey operator to work "in complete independence", with no conflict of interest with any person involved in the same works operation. R.I.C.E carries out no surveys: we only act as advisor, owner assistant and project manager.',
+        },
+        {
+          q: 'And for lead?',
+          a: 'Lead inspectors are also bound by independence rules (French Construction and Housing Code, article L271-6). We recommend entrusting the inspection and the works supervision to separate parties. R.I.C.E carries out no inspections.',
         },
         { q: 'Where do you work?', a: 'In Réunion and Mayotte.' },
       ],
