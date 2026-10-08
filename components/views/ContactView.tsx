@@ -8,8 +8,10 @@ interface ContactViewProps {
 }
 
 export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '', website: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const t = {
     fr: {
@@ -24,8 +26,10 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
       subject: "Sujet",
       message: "Message",
       send: "Envoyer le message",
-      successTitle: "Préparation de l'email...",
-      successDesc: "Votre client de messagerie devrait s'ouvrir avec les informations pré-remplies.",
+      successTitle: "Message envoyé",
+      successDesc: "Merci, votre message nous est bien parvenu. Nous vous répondons rapidement, du lundi au vendredi.",
+      sending: "Envoi en cours…",
+      errorText: "L'envoi n'a pas abouti. Réessayez, ou écrivez-nous directement à contact@rice.re ou au 0692 65 61 66.",
       back: "Retour au formulaire",
       subjects: {
         select: "Sélectionnez un sujet",
@@ -47,8 +51,10 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
       subject: "Subject",
       message: "Message",
       send: "Send Message",
-      successTitle: "Preparing Email...",
-      successDesc: "Your email client should open with the pre-filled information.",
+      successTitle: "Message sent",
+      successDesc: "Thank you, we have received your message. We will get back to you shortly, Monday to Friday.",
+      sending: "Sending…",
+      errorText: "Sending failed. Please try again, or write to us directly at contact@rice.re or call 0692 65 61 66.",
       back: "Back to form",
       subjects: {
         select: "Select a subject",
@@ -60,26 +66,57 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
     }
   }[language];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Envoi via FormSubmit (https://formsubmit.co) : le message arrive par email sur contact@rice.re.
+  // Au tout premier envoi, FormSubmit envoie un email d'activation à contact@rice.re (lien à cliquer une fois).
+  const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/contact@rice.re';
+  const SUBJECT_LABELS: Record<string, string> = {
+    devis: 'Demande de devis',
+    etude: 'Étude environnementale',
+    partenariat: 'Partenariat',
+    autre: 'Autre',
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Construction du lien mailto pour le formulaire
-    const subject = encodeURIComponent(`Contact Site Web: ${formData.subject || 'Demande de renseignement'}`);
-    const body = encodeURIComponent(
-      `Nom: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Sujet: ${formData.subject}\n\n` +
-      `Message:\n${formData.message}`
-    );
+    if (sending) return;
+    setError(false);
 
-    // Conversion Google Ads « Contact cliqué » (envoyée seulement si les cookies publicitaires sont acceptés)
-    trackContact();
+    // Champ piège invisible : rempli uniquement par les robots, on n'envoie rien.
+    if (formData.website) {
+      setSubmitted(true);
+      return;
+    }
 
-    // Redirection vers le client mail
-    window.location.href = `mailto:contact@rice.re?subject=${subject}&body=${body}`;
-    
-    // Affichage du message de succès
-    setSubmitted(true);
+    const subjectLabel = SUBJECT_LABELS[formData.subject] || 'Demande de renseignement';
+    setSending(true);
+    try {
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          Nom: formData.name,
+          email: formData.email,
+          Sujet: subjectLabel,
+          Message: formData.message,
+          Page: typeof window !== 'undefined' ? window.location.href : '',
+          _subject: `Contact site rice.re : ${subjectLabel} — ${formData.name}`,
+          _replyto: formData.email,
+          _template: 'table',
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      const ok = res.ok && String((data as { success?: unknown }).success) !== 'false';
+      if (!ok) throw new Error('FormSubmit');
+
+      // Conversion Google Ads « Contact » (envoyée seulement si les cookies publicitaires sont acceptés)
+      trackContact();
+      setSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '', website: '' });
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -258,11 +295,21 @@ export const ContactView: React.FC<ContactViewProps> = ({ language }) => {
                   ></textarea>
                 </div>
 
+                {/* Champ piège anti-robots, invisible pour les visiteurs */}
+                <div className="hidden" aria-hidden="true">
+                  <label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" value={formData.website} onChange={handleChange} /></label>
+                </div>
+
+                {error && (
+                  <p role="alert" className="text-sm bg-red-500/20 border border-red-300/40 text-red-100 rounded-lg px-4 py-3">{t.errorText}</p>
+                )}
+
                 <button 
                   type="submit" 
-                  className="w-full bg-primary-600 hover:bg-primary-500 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-primary-500/30 transition duration-300 transform hover:-translate-y-0.5"
+                  disabled={sending}
+                  className="w-full bg-primary-600 hover:bg-primary-500 disabled:opacity-60 disabled:cursor-wait text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-primary-500/30 transition duration-300 transform hover:-translate-y-0.5"
                 >
-                  {t.send}
+                  {sending ? t.sending : t.send}
                 </button>
               </form>
             )}

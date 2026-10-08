@@ -18,7 +18,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
         },
         {
           heading: "2. Utilisation des données",
-          text: "Les données collectées sont utilisées uniquement pour :\n- Répondre à vos demandes de contact et de devis.\n- Améliorer nos services et notre relation client.\n- Assurer le suivi technique de vos projets."
+          text: "Les données collectées sont utilisées uniquement pour :\n- Répondre à vos demandes de contact et de devis.\n- Améliorer nos services et notre relation client.\n- Assurer le suivi technique de vos projets.\n\nLes messages envoyés avec le formulaire de contact transitent par le service FormSubmit (Devro LABS), qui les transmet par email à R.I.C.E."
         },
         {
           heading: "3. Conservation des données",
@@ -49,7 +49,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({ language }) => {
         },
         {
           heading: "2. Use of Data",
-          text: "The data collected is used solely to:\n- Respond to your contact and quote requests.\n- Improve our services and customer relationship.\n- Ensure technical follow-up of your projects."
+          text: "The data collected is used solely to:\n- Respond to your contact and quote requests.\n- Improve our services and customer relationship.\n- Ensure technical follow-up of your projects.\n\nMessages sent with the contact form go through the FormSubmit service (Devro LABS), which forwards them by email to R.I.C.E."
         },
         {
           heading: "3. Data Retention",
