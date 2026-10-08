@@ -35,11 +35,22 @@ interface PageContent {
   related: { label: string; to: string };
 }
 
+interface Img {
+  src: string;
+  alt: Record<Lang, string>;
+  caption?: Record<Lang, string>;
+  w: number;
+  h: number;
+}
+
 export interface ExpertiseData {
   path: string;
   serviceName: string;
   serviceType: string;
   content: Record<Lang, PageContent>;
+  // Illustrations : photos Unsplash (licence Unsplash), servies depuis /public/images
+  hero: Img;
+  figures: Img[]; // affichées côte à côte après la première section
 }
 
 const CLIENTS_FR =
@@ -49,6 +60,11 @@ const CLIENTS_EN =
 
 export const AMIANTE_PLOMB: ExpertiseData = {
   path: '/amiante-plomb',
+  hero: { src: '/images/offre-amiante-demolition.jpg', w: 1400, h: 933, alt: { fr: 'Pelle de démolition déconstruisant un immeuble', en: 'Demolition excavator taking down a building' } },
+  figures: [
+    { src: '/images/offre-amiante-travaux.jpg', w: 1400, h: 933, alt: { fr: 'Pièce en cours de travaux, gravats au sol et étais', en: 'Room under works, rubble on the floor and props' }, caption: { fr: 'Amiante : des travaux encadrés, de la préparation à la restitution', en: 'Asbestos: works managed from preparation to handover' } },
+    { src: '/images/offre-plomb-peinture.jpg', w: 900, h: 1353, alt: { fr: 'Mur aux peintures anciennes écaillées', en: 'Wall with old flaking paint' }, caption: { fr: 'Plomb : les peintures anciennes dégradées', en: 'Lead: old deteriorated paint' } },
+  ],
   serviceName: "Maîtrise d'œuvre et assistance à maîtrise d'ouvrage amiante et plomb",
   serviceType: "Maîtrise d'œuvre et AMO de travaux de désamiantage et de déplombage",
   content: {
@@ -171,6 +187,11 @@ export const AMIANTE_PLOMB: ExpertiseData = {
 
 export const DEPOLLUTION: ExpertiseData = {
   path: '/depollution',
+  hero: { src: '/images/offre-depol-pelle.jpg', w: 1400, h: 787, alt: { fr: 'Pelle mécanique en terrassement sur un site', en: 'Excavator during earthworks on a site' } },
+  figures: [
+    { src: '/images/offre-depol-godet.jpg', w: 1400, h: 937, alt: { fr: 'Godet de pelle mécanique dans la terre', en: 'Excavator bucket in soil' }, caption: { fr: 'Excavation et gestion des terres', en: 'Excavation and soil management' } },
+    { src: '/images/offre-depol-sol.jpg', w: 900, h: 1199, alt: { fr: 'Gros plan sur un sol', en: 'Close-up of soil' }, caption: { fr: 'Le sol, au cœur du projet', en: 'Soil at the heart of the project' } },
+  ],
   serviceName: 'Assistance, conseil, AMO et maîtrise d’œuvre en dépollution et sites et sols pollués',
   serviceType: 'AMO et maîtrise d’œuvre de travaux de dépollution',
   content: {
@@ -304,26 +325,50 @@ const buildJsonLd = (data: ExpertiseData) => {
 };
 
 export const ExpertiseView: React.FC<{ language: Language; data: ExpertiseData }> = ({ language, data }) => {
-  const t = data.content[language as Lang] ?? data.content.fr;
+  const lang: Lang = language === 'en' ? 'en' : 'fr';
+  const t = data.content[lang];
 
   return (
-    <div className="bg-slate-50 min-h-screen py-16">
+    <div className="bg-slate-50 min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd(data)) }}
       />
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-12">
-          <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm">{t.kicker}</span>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6 leading-tight">{t.h1}</h1>
-          {t.intro.map((p, i) => (
-            <p key={i} className="text-lg text-slate-600 leading-relaxed mb-4">{p}</p>
-          ))}
-        </header>
-
+      <section className="bg-secondary-900 text-white">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-stretch">
+          <div className="flex-[999_1_520px] min-w-0 px-4 sm:px-6 lg:px-8 pt-12 pb-14">
+            <span className="text-primary-300 font-bold tracking-wider uppercase text-sm">{t.kicker}</span>
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mt-3 mb-6 leading-tight">{t.h1}</h1>
+            {t.intro.map((p, i) => (
+              <p key={i} className="text-lg text-secondary-100 leading-relaxed mb-4 max-w-2xl">{p}</p>
+            ))}
+            <div className="flex flex-wrap gap-4 mt-6">
+              <Link to="/contact" className="inline-flex items-center px-6 py-3 rounded-full bg-primary-700 hover:bg-primary-800 text-white font-semibold transition">
+                {t.ctaButton}<ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <a href="tel:+262692656166" className="inline-flex items-center px-6 py-3 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold transition">
+                <Phone className="mr-2 h-5 w-5" />0692 65 61 66
+              </a>
+            </div>
+          </div>
+          <img src={data.hero.src} alt={data.hero.alt[lang]} width={data.hero.w} height={data.hero.h} className="flex-[1_1_420px] min-w-0 w-full min-h-[320px] object-cover" />
+        </div>
+      </section>
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="space-y-10">
           {t.sections.map((s, i) => (
-            <section key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+            <React.Fragment key={i}>
+            {i === 1 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {data.figures.map((f) => (
+                  <figure key={f.src} className="m-0">
+                    <img src={f.src} alt={f.alt[lang]} width={f.w} height={f.h} loading="lazy" className="w-full h-80 object-cover rounded-2xl" />
+                    {f.caption && <figcaption className="text-sm text-slate-500 mt-2">{f.caption[lang]}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            )}
+            <section className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">{s.heading}</h2>
               {s.paragraphs?.map((p, j) => (
                 <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
@@ -339,6 +384,7 @@ export const ExpertiseView: React.FC<{ language: Language; data: ExpertiseData }
                 </ul>
               )}
             </section>
+            </React.Fragment>
           ))}
 
           <section className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">

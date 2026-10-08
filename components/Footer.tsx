@@ -25,8 +25,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
       },
       expTitle: "Expertises",
       exp: [
-        "Études Réglementaires & ICPE",
-        "Renaturation & Biodiversité",
         "Économie Circulaire & RSE",
         "Imagerie Drone & 3D"
       ],
@@ -51,8 +49,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
       },
       expTitle: "Expertise",
       exp: [
-        "Regulatory Studies & ICPE",
-        "Renaturation & Biodiversity",
         "Circular Economy & CSR",
         "Drone Imagery & 3D"
       ],
@@ -118,6 +114,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               <li><Link to="/carbone-operation" className="hover:text-primary-600 transition">{language === 'fr' ? "Carbone d'opération" : 'Operation carbon'}</Link></li>
               <li><Link to="/biodechets" className="hover:text-primary-600 transition">{language === 'fr' ? 'Biodéchets : AMO' : 'Biowaste'}</Link></li>
               <li><Link to="/chantier-suivi" className="hover:text-primary-600 transition">{language === 'fr' ? 'Chantier suivi' : 'Monitored works'}</Link></li>
+              <li><Link to="/etudes-reglementaires" className="hover:text-primary-600 transition">{language === 'fr' ? 'Études Réglementaires & ICPE' : 'Regulatory Studies & ICPE'}</Link></li>
+              <li><Link to="/renaturation-biodiversite" className="hover:text-primary-600 transition">{language === 'fr' ? 'Renaturation & Biodiversité' : 'Renaturation & Biodiversity'}</Link></li>
               {t.exp.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}

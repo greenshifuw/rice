@@ -18,7 +18,7 @@ import { LegalView } from './components/views/LegalView';
 import { PrivacyView } from './components/views/PrivacyView';
 import { PresentationView } from './components/views/PresentationView';
 import { ExpertiseView, AMIANTE_PLOMB, DEPOLLUTION } from './components/views/ExpertiseView';
-import { CarboneOperationView, BiodechetsView, ChantierSuiviView } from './components/views/OffersView';
+import { CarboneOperationView, BiodechetsView, ChantierSuiviView, RenaturationView, ReglementaireView } from './components/views/OffersView';
 
 // Wrapper to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -63,6 +63,8 @@ export const AppContent: React.FC = () => {
           <Route path="/carbone-operation" element={<CarboneOperationView language={language} />} />
           <Route path="/biodechets" element={<BiodechetsView language={language} />} />
           <Route path="/chantier-suivi" element={<ChantierSuiviView language={language} />} />
+          <Route path="/renaturation-biodiversite" element={<RenaturationView language={language} />} />
+          <Route path="/etudes-reglementaires" element={<ReglementaireView language={language} />} />
         </Routes>
       </main>
 

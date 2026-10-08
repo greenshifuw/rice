@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Check, ArrowRight, Phone, Mail, ExternalLink, FileText, LineChart, Award,
-  CalendarDays, Landmark, Building2, Sprout,
+  CalendarDays, Landmark, Building2, Sprout, Factory, Map, Flower2, Droplet, Search, ClipboardCheck, Leaf,
 } from 'lucide-react';
 import { Language } from '../../types';
 import { SITE_URL } from '../../seo/routes';
@@ -825,6 +825,416 @@ export const ChantierSuiviView: React.FC<{ language: Language }> = ({ language }
         <FaqBlock lang={lang} items={CHANTIER_FAQ[lang]} />
         <Cta lang={lang} title={t.ctaTitle} text={t.ctaText} />
         <Related lang={lang} links={[{ to: '/amiante-plomb', fr: 'Amiante & Plomb', en: 'Asbestos & lead' }, { to: '/depollution', fr: 'Dépollution', en: 'Remediation' }, { to: '/carbone-operation', fr: "Carbone d'opération", en: 'Operation carbon' }]} />
+      </div>
+    </div>
+  );
+};
+
+
+/* =====================================================================
+   4. RENATURATION & BIODIVERSITÉ — /renaturation-biodiversite
+   ===================================================================== */
+
+const RENAT_FAQ: Record<Lang, Faq[]> = {
+  fr: [
+    { q: "Qu'est-ce que le « zéro artificialisation nette » ?", a: "Un objectif fixé par la loi n° 2021-1104 du 22 août 2021 pour 2050. L'artificialisation nette correspond au solde entre les sols artificialisés et les sols renaturés (Banque des Territoires, 14 février 2022)." },
+    { q: 'Peut-on renaturer un site pollué ?', a: "La question de la pollution des sols se traite en amont. R.I.C.E accompagne aussi la dépollution et la gestion des sites et sols pollués : voir notre page Dépollution." },
+    { q: 'Pouvez-vous suivre les travaux de renaturation ?', a: "Oui. R.I.C.E assure la maîtrise d'œuvre et le suivi environnemental du chantier, partagé avec le maître d'ouvrage en temps réel dans NUMERICE BTP." },
+  ],
+  en: [
+    { q: 'What is “zero net land take”?', a: 'A 2050 target set by French law no. 2021-1104 of 22 August 2021. Net land take is the balance between artificialised and renatured soils (Banque des Territoires, 14 February 2022).' },
+    { q: 'Can a polluted site be renatured?', a: 'Soil pollution is dealt with first. R.I.C.E also supports remediation and the management of polluted sites and soils: see our Remediation page.' },
+    { q: 'Can you supervise renaturation works?', a: 'Yes. R.I.C.E provides project management and environmental monitoring of the works, shared with the client in real time in NUMERICE BTP.' },
+  ],
+};
+
+const RenatT = {
+  fr: {
+    crumb: 'Renaturation & biodiversité',
+    kicker: 'Renaturation · Biodiversité · Nature en ville',
+    h1: 'Redonner vie aux sols, aux friches et à la ville',
+    lead: "Friches industrielles, espaces urbains, bâtiments : R.I.C.E conçoit vos plans de renaturation et intègre la biodiversité dans vos projets, du diagnostic de site à la maîtrise d'œuvre des travaux.",
+    btn: 'Parler de votre projet',
+    zanTitle: "Objectif « zéro artificialisation nette » en 2050 : la renaturation des sols entre dans le calcul.",
+    zanText: "La loi n° 2021-1104 du 22 août 2021 fixe l'objectif de zéro artificialisation nette en 2050, avec une première étape : réduire de moitié le rythme de consommation d'espaces en dix ans. L'artificialisation nette est le solde entre artificialisation et renaturation des sols.",
+    zanSrc: "Source : Banque des Territoires, « Qu'est-ce que le zéro artificialisation nette ? », 14 février 2022.",
+    domKicker: 'Nos domaines',
+    domTitle: 'Quatre façons de faire revenir la nature',
+    doms: [
+      { Icon: Factory, t: 'Renaturation de friches', d: 'Friches industrielles et sites délaissés : redonner aux sols des fonctions écologiques et un usage.' },
+      { Icon: Map, t: 'Plans stratégiques de renaturation urbaine', d: "Identifier les espaces à renaturer à l'échelle d'un quartier ou d'une commune et programmer les actions." },
+      { Icon: Building2, t: 'Biodiversité dans le bâti', d: 'Toitures végétalisées, agriculture urbaine, aménagements favorables à la faune et à la flore.' },
+      { Icon: Flower2, t: 'Jardins temporaires et intégration paysagère', d: "Occuper un site en attente de projet, intégrer un aménagement dans son paysage." },
+    ],
+    whoKicker: 'Pour qui ?',
+    whoTitle: 'Ceux qui transforment le territoire',
+    who: ["Collectivités : espaces publics, cours d'école, friches communales", 'Aménageurs et promoteurs', 'Industriels propriétaires de friches', 'Bailleurs sociaux et gestionnaires de patrimoine'],
+    missionKicker: 'La mission',
+    missionTitle: 'Du diagnostic de site au suivi après travaux',
+    steps: [
+      { t: 'État des lieux', d: 'Visite, cartographie SIG du site, photogrammétrie par drone et modélisation 3D si utile.' },
+      { t: 'Plan de renaturation', d: "Scénarios, programme d'actions et chiffrage." },
+      { t: 'DCE et analyse des offres', d: 'Consultation des entreprises et aide au choix.' },
+      { t: 'Suivi des travaux', d: "Maîtrise d'œuvre et suivi partagé en temps réel dans NUMERICE BTP." },
+      { t: 'Suivi après travaux', d: "Reprise de la végétation, gestion, bilan de l'opération." },
+    ],
+    bioKicker: 'Biodiversité',
+    bioTitle: 'Penser les espèces dès la conception',
+    bioText: "Chaque projet tient compte des milieux et des espèces présents sur le site. Pendant les travaux, le suivi environnemental couvre la faune, la flore, les milieux aquatiques, les sols et les espaces protégés, lot par lot.",
+    bioTags: ['Faune, flore & biodiversité', 'Milieux aquatiques', 'Sols', 'Paysage', 'Espaces protégés & Natura 2000'],
+    getTitle: 'Ce que vous recevez',
+    get: ['Diagnostic de site et cartographie SIG', 'Plan de renaturation avec scénarios et chiffrage', "DCE, rapport d'analyse des offres", 'Comptes rendus de chantier et accès à NUMERICE BTP', "Bilan de fin d'opération"],
+    oneTitle: "Une seule équipe, de l'étude au chantier",
+    one: "Le même interlocuteur conçoit le plan, prépare la consultation et suit les travaux. Expérience depuis 2008 auprès des maîtres d'ouvrage publics et privés de La Réunion et de Mayotte.",
+    ctaTitle: 'Un site à renaturer ?',
+    ctaText: "Friche, espace public, bâtiment : parlons de votre projet et de ce qu'il peut rendre à la nature.",
+    alt: { hero: 'Paysage de montagne réunionnais couvert de végétation', roof: "Vue aérienne d'une toiture végétalisée au milieu des arbres", gecko: 'Gecko vert sur un tronc' },
+  },
+  en: {
+    crumb: 'Renaturation & biodiversity',
+    kicker: 'Renaturation · Biodiversity · Nature in the city',
+    h1: 'Bringing soils, brownfields and cities back to life',
+    lead: 'Industrial brownfields, urban spaces, buildings: R.I.C.E designs your renaturation plans and integrates biodiversity into your projects, from site assessment to works management.',
+    btn: 'Talk about your project',
+    zanTitle: '“Zero net land take” by 2050: soil renaturation counts.',
+    zanText: 'French law no. 2021-1104 of 22 August 2021 sets a zero net land take target for 2050, with a first step: halving the pace of land consumption within ten years. Net land take is the balance between artificialisation and soil renaturation.',
+    zanSrc: 'Source: Banque des Territoires, “Qu’est-ce que le zéro artificialisation nette ?”, 14 February 2022.',
+    domKicker: 'What we do',
+    domTitle: 'Four ways to bring nature back',
+    doms: [
+      { Icon: Factory, t: 'Brownfield renaturation', d: 'Industrial brownfields and derelict sites: restoring ecological functions and a use to the soil.' },
+      { Icon: Map, t: 'Urban renaturation strategies', d: 'Identifying areas to renature at district or town scale and planning the actions.' },
+      { Icon: Building2, t: 'Biodiversity in buildings', d: 'Green roofs, urban agriculture, features that support fauna and flora.' },
+      { Icon: Flower2, t: 'Temporary gardens and landscape integration', d: 'Using a site awaiting development, fitting a project into its landscape.' },
+    ],
+    whoKicker: 'Who is it for?',
+    whoTitle: 'Those who shape the territory',
+    who: ['Local authorities: public spaces, schoolyards, municipal brownfields', 'Developers', 'Industrial owners of brownfields', 'Social landlords and property managers'],
+    missionKicker: 'The assignment',
+    missionTitle: 'From site assessment to post-works follow-up',
+    steps: [
+      { t: 'Site assessment', d: 'Site visit, GIS mapping, drone photogrammetry and 3D modelling where useful.' },
+      { t: 'Renaturation plan', d: 'Scenarios, action programme and costing.' },
+      { t: 'Tender and bid analysis', d: 'Contractor consultation and selection support.' },
+      { t: 'Works supervision', d: 'Project management and real-time shared tracking in NUMERICE BTP.' },
+      { t: 'Post-works follow-up', d: 'Vegetation establishment, management, operation review.' },
+    ],
+    bioKicker: 'Biodiversity',
+    bioTitle: 'Thinking about species from the design stage',
+    bioText: 'Each project takes into account the habitats and species present on site. During the works, environmental monitoring covers fauna, flora, water bodies, soils and protected areas, package by package.',
+    bioTags: ['Fauna, flora & biodiversity', 'Water bodies', 'Soils', 'Landscape', 'Protected areas & Natura 2000'],
+    getTitle: 'What you receive',
+    get: ['Site assessment and GIS mapping', 'Renaturation plan with scenarios and costing', 'Tender documents, bid analysis report', 'Site meeting minutes and access to NUMERICE BTP', 'End-of-operation review'],
+    oneTitle: 'One team, from study to site',
+    one: 'The same contact designs the plan, prepares the tender and supervises the works. Experience since 2008 with public and private clients in Réunion and Mayotte.',
+    ctaTitle: 'A site to renature?',
+    ctaText: 'Brownfield, public space, building: let’s talk about your project and what it can give back to nature.',
+    alt: { hero: 'Mountain landscape in Réunion covered with vegetation', roof: 'Aerial view of a green roof among trees', gecko: 'Green gecko on a tree trunk' },
+  },
+};
+
+export const RenaturationView: React.FC<{ language: Language }> = ({ language }) => {
+  const lang = lng(language);
+  const t = RenatT[lang];
+  return (
+    <div className="bg-slate-50">
+      <JsonLd
+        path="/renaturation-biodiversite"
+        name="Renaturation et biodiversité : plans de renaturation, AMO et maîtrise d'œuvre"
+        serviceType="Renaturation de friches, renaturation urbaine, biodiversité dans le bâti, intégration paysagère"
+        description={RenatT.fr.lead}
+        faq={RENAT_FAQ.fr}
+      />
+      <section className="relative bg-primary-950 text-white overflow-hidden">
+        <img src="/images/offre-renat-cirque.jpg" alt={t.alt.hero} className="absolute inset-0 w-full h-full object-cover opacity-55" width={1400} height={1050} />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-950/60 to-primary-950/10" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
+          <Breadcrumb lang={lang} label={t.crumb} light />
+          <div className="max-w-2xl">
+            <Kicker light>{t.kicker}</Kicker>
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mt-3 mb-5">{t.h1}</h1>
+            <p className="text-lg md:text-xl text-primary-50 leading-relaxed mb-8">{t.lead}</p>
+            <HeroButtons label={t.btn} />
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-14">
+        <section className="-mt-11 relative bg-white rounded-2xl p-7 shadow-xl flex flex-wrap gap-6 items-center">
+          <div className="w-16 h-16 rounded-2xl bg-primary-100 text-primary-700 flex items-center justify-center shrink-0">
+            <Sprout className="h-8 w-8" aria-hidden="true" />
+          </div>
+          <div className="flex-[999_1_420px]">
+            <p className="text-xl font-bold text-secondary-900 mb-1">{t.zanTitle}</p>
+            <p className="text-slate-600 leading-relaxed mb-1">{t.zanText}</p>
+            <p className="text-sm text-slate-500">{t.zanSrc}</p>
+          </div>
+        </section>
+
+        <section>
+          <Kicker>{t.domKicker}</Kicker>
+          <H2 className="mb-8">{t.domTitle}</H2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {t.doms.map((d) => (
+              <article key={d.t} className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 flex flex-col gap-2">
+                <span className="w-12 h-12 rounded-xl bg-green-600 text-white flex items-center justify-center"><d.Icon className="h-6 w-6" aria-hidden="true" /></span>
+                <h3 className="text-lg font-bold text-slate-800 mt-1">{d.t}</h3>
+                <p className="text-slate-600 leading-relaxed">{d.d}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="flex flex-wrap gap-10 items-center">
+          <img src="/images/offre-renat-toiture.jpg" alt={t.alt.roof} className="flex-[1_1_440px] min-w-0 w-full h-80 object-cover rounded-2xl" loading="lazy" width={1400} height={933} />
+          <div className="flex-[1_1_420px]">
+            <Kicker>{t.whoKicker}</Kicker>
+            <H2>{t.whoTitle}</H2>
+            <CheckList items={t.who} />
+          </div>
+        </section>
+
+        <Card className="md:p-10">
+          <Kicker>{t.missionKicker}</Kicker>
+          <H2 className="mb-8">{t.missionTitle}</H2>
+          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {t.steps.map((s, i) => (
+              <li key={s.t} className="flex flex-col gap-2">
+                <span className="w-11 h-11 rounded-full bg-primary-100 text-primary-800 font-extrabold flex items-center justify-center">{i + 1}</span>
+                <h3 className="font-bold text-slate-800">{s.t}</h3>
+                <p className="text-slate-600 leading-relaxed">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </Card>
+
+        <section className="bg-primary-950 rounded-3xl overflow-hidden text-white flex flex-wrap items-stretch">
+          <img src="/images/offre-renat-gecko.jpg" alt={t.alt.gecko} className="flex-[1_1_320px] min-w-0 w-full h-[420px] object-cover" loading="lazy" width={900} height={1348} />
+          <div className="flex-[999_1_460px] p-8 md:p-12 flex flex-col justify-center gap-4">
+            <Kicker light>{t.bioKicker}</Kicker>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">{t.bioTitle}</h2>
+            <p className="text-lg text-primary-100 leading-relaxed">{t.bioText}</p>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {t.bioTags.map((x) => <span key={x} className="px-3.5 py-2 rounded-full bg-white/10 text-sm">{x}</span>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <h2 className="text-2xl font-extrabold text-secondary-900 mb-5">{t.getTitle}</h2>
+            <CheckList items={t.get} />
+          </Card>
+          <div className="bg-secondary-50 border border-secondary-200 rounded-2xl p-8">
+            <h2 className="text-2xl font-extrabold text-secondary-900 mb-3">{t.oneTitle}</h2>
+            <p className="text-slate-700 leading-relaxed">{t.one}</p>
+          </div>
+        </section>
+
+        <FaqBlock lang={lang} items={RENAT_FAQ[lang]} />
+        <Cta lang={lang} title={t.ctaTitle} text={t.ctaText} />
+        <Related lang={lang} links={[{ to: '/depollution', fr: 'Dépollution', en: 'Remediation' }, { to: '/chantier-suivi', fr: 'Chantier suivi', en: 'Monitored works' }, { to: '/etudes-reglementaires', fr: 'Études réglementaires', en: 'Regulatory studies' }]} />
+      </div>
+    </div>
+  );
+};
+
+/* =====================================================================
+   5. ÉTUDES ET DOSSIERS RÉGLEMENTAIRES — /etudes-reglementaires
+   ===================================================================== */
+
+const REGL_FAQ: Record<Lang, Faq[]> = {
+  fr: [
+    { q: 'Mon activité est-elle une installation classée ?', a: "Cela dépend de la nomenclature ICPE et des seuils de votre activité. Selon le niveau de danger, l'installation relève de la déclaration, de l'enregistrement ou de l'autorisation (Service Public Entreprendre, vérifié le 3 août 2026). R.I.C.E fait l'analyse avec vous." },
+    { q: "Quand faut-il un dossier loi sur l'eau ?", a: "Lorsque vos installations, ouvrages, travaux ou activités dépassent les seuils de la nomenclature annexée à l'article R214-1 du code de l'environnement : déclaration ou autorisation environnementale selon l'importance des impacts." },
+    { q: 'Pouvez-vous auditer une installation existante ?', a: "Oui. L'audit de conformité compare vos pratiques à vos obligations réglementaires et vous remet un plan d'actions priorisé." },
+  ],
+  en: [
+    { q: 'Is my activity a classified installation (ICPE)?', a: 'It depends on the ICPE nomenclature and the thresholds of your activity. Depending on the level of danger, the installation falls under declaration, registration or authorisation (Service Public Entreprendre, checked 3 August 2026). R.I.C.E carries out the analysis with you.' },
+    { q: 'When is a Water Law file required?', a: 'When your installations, structures, works or activities exceed the thresholds of the nomenclature annexed to article R214-1 of the French environment code: declaration or environmental authorisation depending on the impacts.' },
+    { q: 'Can you audit an existing installation?', a: 'Yes. The compliance audit compares your practices with your regulatory obligations and gives you a prioritised action plan.' },
+  ],
+};
+
+const ReglT = {
+  fr: {
+    crumb: 'Études réglementaires',
+    kicker: "ICPE · Loi sur l'eau · Études d'impact · Conformité",
+    h1: 'Études et dossiers réglementaires : sécuriser vos projets et vos activités',
+    lead: "R.I.C.E monte vos dossiers environnementaux, suit leur instruction et vérifie la conformité de vos installations. Un interlocuteur unique à La Réunion depuis 2008.",
+    btn: 'Parler de votre dossier',
+    domKicker: 'Nos domaines',
+    domTitle: 'Quatre types de dossiers, une même rigueur',
+    doms: [
+      { Icon: Factory, bar: 'bg-indigo-500', ic: 'text-indigo-700', t: 'Installations classées (ICPE)', d: "Classement de vos activités, montage des dossiers et gestion de vos obligations d'exploitant." },
+      { Icon: Droplet, bar: 'bg-sky-600', ic: 'text-sky-700', t: "Loi sur l'eau (IOTA)", d: "Dossiers de déclaration ou d'autorisation pour les installations, ouvrages, travaux et activités." },
+      { Icon: Search, bar: 'bg-green-600', ic: 'text-primary-700', t: "Études d'impact environnemental", d: "État initial, analyse des effets du projet et mesures pour éviter, réduire ou compenser." },
+      { Icon: ClipboardCheck, bar: 'bg-orange-500', ic: 'text-orange-700', t: 'Audits de conformité', d: "Écarts entre vos pratiques et vos obligations, plan d'actions priorisé." },
+    ],
+    icpeKicker: 'Installations classées',
+    icpeTitle: 'Trois régimes, selon le niveau de danger',
+    regimes: ['Déclaration', 'Enregistrement', 'Autorisation'],
+    icpeText: 'Du moins dangereux au plus dangereux. Le régime dépend de la rubrique de la nomenclature et des seuils de votre activité.',
+    icpeSrc: "Source : Service Public Entreprendre, « Installations classées pour la protection de l'environnement (ICPE) », vérifié le 3 août 2026.",
+    eauKicker: "Loi sur l'eau",
+    eauTitle: 'Déclaration ou autorisation environnementale',
+    eauText: "Les IOTA susceptibles de présenter des dangers ou de porter atteinte aux milieux aquatiques relèvent de l'autorisation environnementale (art. L214-3 du code de l'environnement) ; les autres, de la déclaration. Les seuils figurent dans la nomenclature annexée à l'article R214-1.",
+    eauSrc: 'Source : ministère de la Transition écologique, « Nomenclature IOTA », mise à jour le 20 février 2023.',
+    methKicker: 'La méthode',
+    methTitle: 'De la première analyse au dossier accepté',
+    meth: [
+      ['Analyse du projet', ' et identification des procédures applicables'],
+      ['État initial', ' du site et cartographie SIG'],
+      ['Rédaction du dossier', ' et des pièces graphiques'],
+      ["Suivi de l'instruction", ' et réponses aux demandes de compléments'],
+      ['Mise en conformité', ' et suivi des prescriptions'],
+    ],
+    whoTitle: 'Pour qui ?',
+    who: ["Industriels et exploitants d'installations classées", 'Entreprises privées et promoteurs', "Collectivités et maîtres d'ouvrage publics"],
+    getTitle: 'Ce que vous recevez',
+    get: ['Une note de cadrage réglementaire', 'Le dossier complet, prêt à déposer', 'Les cartes et pièces graphiques (SIG)', 'Les réponses aux demandes des services instructeurs', "Pour un audit : le rapport et son plan d'actions"],
+    ctaTitle: 'Un projet, une installation, un doute réglementaire ?',
+    ctaText: "Décrivez-nous votre situation : nous vous disons quelles procédures s'appliquent et comment les mener.",
+    alt: { hero: "Site industriel avec cheminées au bord de l'eau", eau: 'Cascade dans une forêt tropicale', doc: 'Ingénieur travaillant sur des plans avec une règle' },
+  },
+  en: {
+    crumb: 'Regulatory studies',
+    kicker: 'ICPE · Water Law · Impact studies · Compliance',
+    h1: 'Regulatory studies and files: securing your projects and operations',
+    lead: 'R.I.C.E prepares your environmental permit files, follows their review and checks the compliance of your installations. A single contact in Réunion since 2008.',
+    btn: 'Talk about your file',
+    domKicker: 'What we do',
+    domTitle: 'Four types of files, the same rigour',
+    doms: [
+      { Icon: Factory, bar: 'bg-indigo-500', ic: 'text-indigo-700', t: 'Classified installations (ICPE)', d: 'Classification of your activities, permit files and management of your operator obligations.' },
+      { Icon: Droplet, bar: 'bg-sky-600', ic: 'text-sky-700', t: 'Water Law (IOTA)', d: 'Declaration or authorisation files for installations, structures, works and activities.' },
+      { Icon: Search, bar: 'bg-green-600', ic: 'text-primary-700', t: 'Environmental impact studies', d: 'Baseline, analysis of project effects and measures to avoid, reduce or offset.' },
+      { Icon: ClipboardCheck, bar: 'bg-orange-500', ic: 'text-orange-700', t: 'Compliance audits', d: 'Gaps between your practices and your obligations, prioritised action plan.' },
+    ],
+    icpeKicker: 'Classified installations',
+    icpeTitle: 'Three regimes, by level of danger',
+    regimes: ['Declaration', 'Registration', 'Authorisation'],
+    icpeText: 'From least to most dangerous. The regime depends on the nomenclature heading and the thresholds of your activity.',
+    icpeSrc: 'Source: Service Public Entreprendre, “Installations classées pour la protection de l’environnement (ICPE)”, checked 3 August 2026.',
+    eauKicker: 'Water Law',
+    eauTitle: 'Declaration or environmental authorisation',
+    eauText: 'Installations, structures, works and activities likely to present dangers or harm water bodies require an environmental authorisation (art. L214-3 of the French environment code); the others, a declaration. Thresholds are set in the nomenclature annexed to article R214-1.',
+    eauSrc: 'Source: French Ministry for Ecological Transition, “Nomenclature IOTA”, updated 20 February 2023.',
+    methKicker: 'Our method',
+    methTitle: 'From first analysis to accepted file',
+    meth: [
+      ['Project analysis', ' and identification of applicable procedures'],
+      ['Site baseline', ' and GIS mapping'],
+      ['Drafting the file', ' and graphic documents'],
+      ['Following the review', ' and answering requests for additional information'],
+      ['Compliance', ' and follow-up of requirements'],
+    ],
+    whoTitle: 'Who is it for?',
+    who: ['Industrial companies and ICPE operators', 'Private companies and developers', 'Local authorities and public clients'],
+    getTitle: 'What you receive',
+    get: ['A regulatory framing note', 'The complete file, ready to submit', 'Maps and graphic documents (GIS)', 'Answers to the authorities’ requests', 'For an audit: the report and its action plan'],
+    ctaTitle: 'A project, an installation, a regulatory question?',
+    ctaText: 'Describe your situation: we will tell you which procedures apply and how to carry them out.',
+    alt: { hero: 'Industrial site with chimneys by the water', eau: 'Waterfall in a tropical forest', doc: 'Engineer working on plans with a ruler' },
+  },
+};
+
+const REGIME_STYLE = ['bg-indigo-50 text-indigo-800', 'bg-indigo-200 text-indigo-900', 'bg-indigo-700 text-white'];
+
+export const ReglementaireView: React.FC<{ language: Language }> = ({ language }) => {
+  const lang = lng(language);
+  const t = ReglT[lang];
+  return (
+    <div className="bg-slate-50">
+      <JsonLd
+        path="/etudes-reglementaires"
+        name="Études et dossiers réglementaires environnementaux : ICPE, loi sur l'eau, études d'impact, audits de conformité"
+        serviceType="Dossiers ICPE, dossiers loi sur l'eau (IOTA), études d'impact environnemental, audits de conformité réglementaire"
+        description={ReglT.fr.lead}
+        faq={REGL_FAQ.fr}
+      />
+      <section className="bg-indigo-950 text-white">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-stretch">
+          <div className="flex-[999_1_520px] min-w-0 px-4 sm:px-6 lg:px-8 pt-12 pb-16">
+            <Breadcrumb lang={lang} label={t.crumb} light />
+            <span className="text-sm font-bold tracking-wider uppercase text-indigo-300">{t.kicker}</span>
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mt-3 mb-5">{t.h1}</h1>
+            <p className="text-lg md:text-xl text-indigo-100 leading-relaxed mb-8 max-w-2xl">{t.lead}</p>
+            <HeroButtons label={t.btn} />
+          </div>
+          <img src="/images/offre-regl-industrie.jpg" alt={t.alt.hero} className="flex-[1_1_420px] min-w-0 w-full min-h-[320px] object-cover" width={1400} height={1183} />
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-14">
+        <section>
+          <span className="text-sm font-bold tracking-wider uppercase text-indigo-700">{t.domKicker}</span>
+          <H2 className="mb-8">{t.domTitle}</H2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {t.doms.map((d) => (
+              <article key={d.t} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                <div className={`${d.bar} h-2`} />
+                <div className="p-6 flex flex-col gap-2">
+                  <d.Icon className={`h-8 w-8 ${d.ic}`} aria-hidden="true" />
+                  <h3 className="text-lg font-bold text-slate-800">{d.t}</h3>
+                  <p className="text-slate-600 leading-relaxed">{d.d}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <span className="text-xs font-bold tracking-wider uppercase text-indigo-700">{t.icpeKicker}</span>
+            <h3 className="text-xl font-extrabold text-secondary-900 mt-2 mb-4">{t.icpeTitle}</h3>
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              {t.regimes.map((r, i) => <div key={r} className={`rounded-lg px-2 py-3 text-center text-sm font-bold ${REGIME_STYLE[i]}`}>{r}</div>)}
+            </div>
+            <p className="text-slate-600 leading-relaxed mb-2">{t.icpeText}</p>
+            <p className="text-xs text-slate-500">{t.icpeSrc}</p>
+          </Card>
+          <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+            <img src="/images/offre-regl-cascade.jpg" alt={t.alt.eau} className="w-full h-40 object-cover" loading="lazy" width={1400} height={1050} />
+            <div className="p-8">
+              <span className="text-xs font-bold tracking-wider uppercase text-sky-700">{t.eauKicker}</span>
+              <h3 className="text-xl font-extrabold text-secondary-900 mt-2 mb-3">{t.eauTitle}</h3>
+              <p className="text-slate-600 leading-relaxed mb-2">{t.eauText}</p>
+              <p className="text-xs text-slate-500">{t.eauSrc}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex flex-wrap gap-10 items-center">
+          <div className="flex-[1_1_440px]">
+            <span className="text-sm font-bold tracking-wider uppercase text-indigo-700">{t.methKicker}</span>
+            <H2>{t.methTitle}</H2>
+            <ol className="space-y-3">
+              {t.meth.map(([b, r], i) => (
+                <li key={b} className="flex gap-4 items-center bg-white border border-slate-100 rounded-xl px-5 py-4">
+                  <span className="w-10 h-10 shrink-0 rounded-full bg-indigo-100 text-indigo-800 font-extrabold flex items-center justify-center">{i + 1}</span>
+                  <span className="text-slate-800"><strong>{b}</strong>{r}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <img src="/images/offre-regl-dossier.jpg" alt={t.alt.doc} className="flex-[1_1_400px] min-w-0 w-full h-[420px] object-cover rounded-2xl" loading="lazy" width={1400} height={787} />
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <h2 className="text-2xl font-extrabold text-secondary-900 mb-5">{t.whoTitle}</h2>
+            <CheckList items={t.who} />
+          </Card>
+          <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-8">
+            <h2 className="text-2xl font-extrabold text-indigo-950 mb-5">{t.getTitle}</h2>
+            <ul className="list-disc pl-5 space-y-2 text-slate-700 leading-relaxed">{t.get.map((x) => <li key={x}>{x}</li>)}</ul>
+          </div>
+        </section>
+
+        <FaqBlock lang={lang} items={REGL_FAQ[lang]} />
+        <Cta lang={lang} title={t.ctaTitle} text={t.ctaText} />
+        <Related lang={lang} links={[{ to: '/renaturation-biodiversite', fr: 'Renaturation & biodiversité', en: 'Renaturation & biodiversity' }, { to: '/depollution', fr: 'Dépollution', en: 'Remediation' }, { to: '/carbone-operation', fr: "Carbone d'opération", en: 'Operation carbon' }]} />
       </div>
     </div>
   );

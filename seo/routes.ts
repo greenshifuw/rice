@@ -69,6 +69,20 @@ export const ROUTES: RouteMeta[] = [
     sitemapPriority: 0.9,
   },
   {
+    path: '/renaturation-biodiversite',
+    title: "Renaturation et biodiversité à La Réunion : friches, nature en ville | R.I.C.E",
+    description:
+      "R.I.C.E conçoit vos plans de renaturation et intègre la biodiversité dans vos projets à La Réunion : friches industrielles, renaturation urbaine, toitures végétalisées, AMO et maîtrise d'œuvre.",
+    sitemapPriority: 0.9,
+  },
+  {
+    path: '/etudes-reglementaires',
+    title: "Dossiers ICPE, loi sur l'eau, études d'impact à La Réunion | R.I.C.E",
+    description:
+      "Études et dossiers réglementaires à La Réunion : installations classées (ICPE), loi sur l'eau (IOTA), études d'impact environnemental et audits de conformité. Bureau d'études depuis 2008.",
+    sitemapPriority: 0.9,
+  },
+  {
     path: '/about',
     title: "Bureau d'études environnement au Tampon depuis 2008 | R.I.C.E",
     description:

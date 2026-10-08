@@ -20,6 +20,9 @@ const RAW_SERVICES = [
   {
     icon: <><Bird className="h-8 w-8 text-white" /><Trees className="h-8 w-8 text-white" /><Leaf className="h-8 w-8 text-white" /></>,
     color: "bg-green-600",
+    pages: [
+      { to: "/renaturation-biodiversite", fr: "Renaturation & biodiversité", en: "Renaturation & biodiversity" }
+    ],
     fr: {
       title: "Renaturation & Biodiversité",
       description: "Plans stratégiques de renaturation urbaine et intégration de la biodiversité dans le bâti."
@@ -32,6 +35,9 @@ const RAW_SERVICES = [
   {
     icon: <><ClipboardCheck className="h-8 w-8 text-white" /><FileSearch className="h-8 w-8 text-white" /><Landmark className="h-8 w-8 text-white" /></>,
     color: "bg-indigo-500",
+    pages: [
+      { to: "/etudes-reglementaires", fr: "ICPE, loi sur l'eau, études d'impact", en: "Regulatory studies" }
+    ],
     fr: {
       title: "Études & Dossiers Réglementaires",
       description: "Gestion complète de vos dossiers ICPE, études d'impact, Loi sur l'eau et audits de conformité pour sécuriser vos activités."
